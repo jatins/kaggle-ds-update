@@ -1,0 +1,12 @@
+{
+    "id": "jatinsh/nifty-50-index-2000-2024",
+    "description": "\nHistorical data for NIFTY50 and INDIA VIX index from 2000 to present. Sources: \n* https://www.nseindia.com/reports-indices-historical-index-data\n* https://www.niftyindices.com/reports/historical-data\n* https://www.nseindia.com/reports-indices-historical-vix\n    ",
+    "license": "CC0-1.0",
+    "keywords": [
+        "NIFTY50",
+        "NSE",
+        "Indian Stock Market",
+        "Historical Data"
+    ],
+    "version_notes": "v2024-07-04"
+}
