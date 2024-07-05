@@ -1,7 +1,7 @@
 ### main
 -- fetcher.py
 
-### nb director
+### nb directory
 -- has some interactive notebooks you can play with
 
 ### how to run?
