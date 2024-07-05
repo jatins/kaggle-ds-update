@@ -17,8 +17,6 @@ logger = logging.getLogger(__name__)
 
 def authenticate_kaggle():
     logger.info("Authenticating Kaggle API client...")
-    df = pd.read_csv("path")
-    df.drop()
     kaggle_json_path = os.path.join(os.path.expanduser("~"), ".kaggle", "kaggle.json")
 
     if not os.path.exists(kaggle_json_path):
@@ -152,18 +150,18 @@ def upload_to_kaggle(api, folder):
 def main():
     api = authenticate_kaggle()
     dataset_path = './datasets'
-    # if not os.path.exists(dataset_path):
-    #     os.makedirs(dataset_path)
+    if not os.path.exists(dataset_path):
+        os.makedirs(dataset_path)
 
-    # df = load_dataset(api, dataset_path)
-    # df = df.head(-1)
-    # last_date = get_last_date(df)
-    # start_date = (last_date + timedelta(days=1)).strftime('%d-%b-%Y')
-    # end_date = datetime.today().strftime('%d-%b-%Y')
-    # new_data = fetch_nifty_data(start_date, end_date)
-    # df = update_dataset(df, new_data)
-    # save_dataset(df, os.path.join(dataset_path, FILE_NAME))
-    # vixupdate.get_and_save(os.path.join(dataset_path, 'vix_data.csv'))
+    df = load_dataset(api, dataset_path)
+    df = df.head(-1)
+    last_date = get_last_date(df)
+    start_date = (last_date + timedelta(days=1)).strftime('%d-%b-%Y')
+    end_date = datetime.today().strftime('%d-%b-%Y')
+    new_data = fetch_nifty_data(start_date, end_date)
+    df = update_dataset(df, new_data)
+    save_dataset(df, os.path.join(dataset_path, FILE_NAME))
+    vixupdate.get_and_save(os.path.join(dataset_path, 'vix_data.csv'))
     upload_to_kaggle(api, dataset_path)
 
 
